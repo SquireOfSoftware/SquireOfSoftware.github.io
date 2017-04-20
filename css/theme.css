@@ -1,0 +1,30 @@
+/* Tags */
+
+/* Classes */
+
+.blurb {
+    background-color: #0084ff;
+    color: #fff;
+    border-radius: 4px;
+    max-width: 55%;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 1px 0;
+    padding: 6px 12px;
+    line-height: 1.28;
+}
+
+.left {
+    border-top-left-radius: 1.3em;
+    border-top-right-radius: 1.3em;
+    border-bottom-right-radius: 1.3em;
+}
+
+.right {
+    border-top-left-radius: 1.3em;
+    border-top-right-radius: 1.3em;
+    border-bottom-left-radius: 1.3em;
+    float: right;
+}
+
+/* IDs */
