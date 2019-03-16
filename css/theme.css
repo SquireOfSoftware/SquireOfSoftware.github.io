@@ -1,30 +1,114 @@
 /* Tags */
+div {
+    font-family: Helvetica, Arial, sans-serif;
+}
 
 /* Classes */
 
 .blurb {
-    background-color: #0084ff;
-    color: #fff;
-    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.bubble {
+    background-color: #f1f0f0;
+    color: #000;
+    border-radius: 1.3em;
     max-width: 55%;
-    font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
     margin: 1px 0;
     padding: 6px 12px;
     line-height: 1.28;
+    display: flex;
 }
 
-.left {
-    border-top-left-radius: 1.3em;
-    border-top-right-radius: 1.3em;
-    border-bottom-right-radius: 1.3em;
+.left-bubble {
+    margin-left: 50px;
+    align-self: flex-start;
 }
 
-.right {
-    border-top-left-radius: 1.3em;
-    border-top-right-radius: 1.3em;
-    border-bottom-left-radius: 1.3em;
-    float: right;
+.left-bubble:first-child {
+    border-bottom-left-radius: 0;
+}
+
+.left-bubble:last-child {
+    border-top-left-radius: 0;
+}
+
+.left-bubble:only-child {
+    border-radius: 1.3em;
+}
+
+.right-bubble {
+    margin-right: 30px;
+    align-self: flex-end;
+}
+
+.right-bubble:first-child {
+    border-bottom-right-radius: 0;
+}
+
+.right-bubble:last-child {
+    border-top-right-radius: 0;
+}
+
+.right-bubble:only-child {
+    border-radius: 1.3em;
+}
+
+.me {
+    background-color: #0084ff;
+    color: #fff;
 }
 
 /* IDs */
+#browser-screen {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+
+#chatbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 1000px;
+}
+
+#chatbox-wrapper {
+    overflow-y: scroll;
+    height: 500px;
+    width: 100%;
+}
+
+#message-box {
+    max-width: 1000px;
+    min-width: 300px;
+    width: 60%;
+    box-shadow: 5px 5px grey;
+    border-radius: 5px;
+}
+
+#message-box-header {
+    background-color: rgb(94, 153, 231);
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#contact-details {
+    display: flex;
+    flex-direction: row;
+}
+
+#contact-details > a {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+}
