@@ -2,6 +2,7 @@ console.log("hello world");
 const DIV = "div";
 const IMG = "img";
 const LINK = "a";
+const SPAN = "span";
 
 const CONVERSATION = getConversation();
 

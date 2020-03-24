@@ -3,22 +3,22 @@ function getConversation() {
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "hello world!"),
-                new TextChatBlock(() => "Tell me about some of the things you got up to")
+                new TextChatBlock("hello world!"),
+                new TextChatBlock("Tell me about some of the things you got up to")
             ],
             author = AUTHORS.me),
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "There are a few projects which I have gotten myself involved over the years")
+                new TextChatBlock("There are a few projects which I have gotten myself involved over the years")
             ],
             AUTHORS.you),
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "The first is Orion Project that I first worked on at Uni"),
-                new TextChatBlock(() => "In this project I helped coordinate about 24 other students in Automating the flight of a programmable drone"),
-                new TextChatBlock(() => "The aim of the project is to have a Parrot AR Drone (picture taken from the official website) fly autonomously " +
+                new TextChatBlock("The first is Orion Project that I first worked on at Uni"),
+                new TextChatBlock("In this project I helped coordinate about 24 other students in Automating the flight of a programmable drone"),
+                new TextChatBlock("The aim of the project is to have a Parrot AR Drone (picture taken from the official website) fly autonomously " +
                                          "(that is, without any human directives apart from mapping a route)."),
                 new ImageChatBlock(
                     "Orion gallery",
@@ -29,13 +29,13 @@ function getConversation() {
                             "This is the programmable drone that we were to use, we named it 'Sputnik'"
                         )
                     ]),
-                new TextChatBlock(() => "We had an Angular JS front end (version 1)")
+                new TextChatBlock("We had an Angular JS front end (version 1)")
             ],
             AUTHORS.you),
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "Ah cool, so what did you guys use to build the System?")
+                new TextChatBlock("Ah cool, so what did you guys use to build the System?")
             ],
             AUTHORS.me
         ),
@@ -56,51 +56,62 @@ function getConversation() {
                             "This is the design that we ended up following"
                         )
                     ]),
-                new TextChatBlock(() => "We used Angular JS front end (version 1) for our client front end"),
-                new TextChatBlock(() => "We used Django as our front end, backend which would centralise the web API calls to the database"),
-                new TextChatBlock(() => "Follow by a MySQL database as the main communication channel, between the web API calls and the asynchronous drone control back end"),
-                new TextChatBlock(() => "With ROS (Robot Operating System) as our drone control sub-system"),
-                new TextChatBlock(() => "And some on board shell scripts running on the Drone to enable the pull and pushing of notifications")
+                new TextChatBlock("We used Angular JS front end (version 1) for our client front end"),
+                new TextChatBlock("We used Django as our front end, backend which would centralise the web API calls to the database"),
+                new TextChatBlock("Follow by a MySQL database as the main communication channel, between the web API calls and the asynchronous drone control back end"),
+                new TextChatBlock("With ROS (Robot Operating System) as our drone control sub-system"),
+                new TextChatBlock("And some on board shell scripts running on the Drone to enable the pull and pushing of notifications")
             ],
             AUTHORS.you
         ),
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "Wow that sounds like a really large project."),
-                new TextChatBlock(() => "What role did you play in this?")
+                new TextChatBlock("Wow that sounds like a really large project."),
+                new TextChatBlock("What role did you play in this?")
             ],
             AUTHORS.me
         ),
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "Yeah it was a pretty large project, there were 25 people to be exact."),
-                new TextChatBlock(() => "I play the project manager role and coordinated the project and liaised with the customer to get further details.")
+                new TextChatBlock("Yeah it was a pretty large project, there were 25 people to be exact."),
+                new TextChatBlock("I play the project manager role and coordinated the project and liaised with the customer to get further details.")
             ],
             AUTHORS.you
         ),
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "Haha wow, did you guys manage to meet your targets?")
+                new TextChatBlock("Haha wow, did you guys manage to meet your targets?")
             ],
             AUTHORS.me
         ),
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "We just barely managed to get a demonstration up and running. You can see in the video below <Insert video here>"),
-                new TextChatBlock(() => "If you want to have a read of our source code, you can read it here:"),
-                new LinkChatBlock(() => "https://github.com/SquireOfSoftware/Orion")
+                new TextChatBlock("We just barely managed to get a demonstration up and running. You can see in the video below <Insert video here>"),
+                new VideoChatBlock(
+                    [
+                        new Video(
+                            "https://img.youtube.com/vi/wsdGvWEk0LM/1.jpg",
+                            "https://www.youtube.com/watch?v=wsdGvWEk0LM&list=PLFE1soEirSeYSN21s1mMcTJl_1ayu5DAi&index=10&t=0s",
+                            '<iframe width="560" height="315" src="https://www.youtube.com/embed/wsdGvWEk0LM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                            "This is our final presentation"
+                        )
+                    ]),
+                new TextChatBlock("If you want to have a read of our source code, you can read it here:"),
+                new LinkChatBlock("https://github.com/SquireOfSoftware/Orion"),
+                new TextChatBlock("And our full video playlist of some of the stuff we tinkered with:"),
+                new LinkChatBlock("https://www.youtube.com/playlist?list=PLFE1soEirSeYSN21s1mMcTJl_1ayu5DAi")
             ],
             AUTHORS.you
         ),
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock(() => "I read on your resume that you have worked with a some Machine learning and neural networks"),
-                new TextChatBlock(() => "Can you tell me about that project?")
+                new TextChatBlock("I read on your resume that you have worked with a some Machine learning and neural networks"),
+                new TextChatBlock("Can you tell me about that project?")
             ],
             AUTHORS.me
         )
@@ -130,8 +141,6 @@ class ChatBurst {
         let chatBurst = document.createElement(DIV);
         chatBurst.className = "chat-burst";
 
-        console.log(this);
-
         this.chatBlocks.forEach(chatBlock => {
             chatBurst.appendChild(chatBlock.createBlock(this.author));
         });
@@ -154,35 +163,35 @@ class LinkChatBlock extends ChatBlock {
     }
 
     createBlock(author = AUTHORS.me) {
-        let sentenceBlock = document.createElement(DIV);
-        sentenceBlock.className = "bubble " +
+        let chatBlock = document.createElement(DIV);
+        chatBlock.className = "bubble " +
             (author === AUTHORS.me ? "right-bubble me" : "left-bubble") +
             " " + this.chatType;
 
         let linkBlock = document.createElement(LINK);
-        linkBlock.href = this.externalURL();
+        linkBlock.href = this.externalURL;
         linkBlock.target = "_blank";
-        linkBlock.innerText = this.linkText === undefined ? this.externalURL() : this.linkText;
+        linkBlock.innerText = this.linkText === undefined ? this.externalURL : this.linkText;
 
-        sentenceBlock.appendChild(linkBlock);
+        chatBlock.appendChild(linkBlock);
 
-        return sentenceBlock;
+        return chatBlock;
     }
 }
 
 class TextChatBlock extends ChatBlock {
-    constructor(messageFunction = () => {}) {
+    constructor(message) {
         super(CHAT_TYPE.text);
-        this.messageFunction = messageFunction;
+        this.message = message;
     }
 
     createBlock(author = AUTHORS.me) {
-        let sentenceBlock = document.createElement(DIV);
-        sentenceBlock.className = "bubble " +
+        let chatBlock = document.createElement(DIV);
+        chatBlock.className = "bubble " +
             (author === AUTHORS.me ? "right-bubble me" : "left-bubble") +
             " " + this.chatType;
-        sentenceBlock.innerText = this.messageFunction();
-        return sentenceBlock;
+        chatBlock.innerText = this.message;
+        return chatBlock;
     }
 }
 
@@ -238,22 +247,80 @@ class ImageChatBlock extends ChatBlock {
 }
 
 class Video {
-    constructor(thumbnailURL, mainVideoURL, blurb, clickHandler = () => {}) {
+    constructor(thumbnailURL, mainVideoURL, iframe, blurb) {
         this.thumbnailURL = thumbnailURL;
         this.mainVideoURL = mainVideoURL;
+        this.iframe = iframe;
         this.blurb = blurb;
-        this.clickHandler = clickHandler;
     }
 
     createThumbnail() {
-        let thumbnailBlock = document.createElement(IMG);
-        thumbnailBlock.className = "clickableImage";
-        thumbnailBlock.src = this.thumbnailURL;
-        thumbnailBlock.onclick = this.clickHandler;
-        return thumbnailBlock;
+        let thumbnailImage = document.createElement(IMG);
+        thumbnailImage.className = "clickableImage";
+        thumbnailImage.src = this.thumbnailURL;
+        thumbnailImage.onclick = () => {};
+        return thumbnailImage;
+    }
+
+    createOverlayPlayButton() {
+        let thumbnailOverlay = document.createElement(LINK);
+
+        thumbnailOverlay.className = "thumbnail-overlay";
+
+        let playButton = document.createElement(SPAN);
+        playButton.className = "fa fa-lg fa-play icon";
+        thumbnailOverlay.append(playButton);
+        thumbnailOverlay.href = this.mainVideoURL;
+        thumbnailOverlay.target = "_blank";
+
+        return thumbnailOverlay;
+    }
+
+    createThumbnailBlurb() {
+        let thumbnailBlurb = document.createElement(DIV);
+        thumbnailBlurb.innerText = this.blurb;
+        thumbnailBlurb.className = "thumbnail-blurb";
+
+        return thumbnailBlurb;
     }
 
     createBlock(author = AUTHORS.me) {
+        let thumbnailBlock = document.createElement(DIV);
 
+        let thumbnail = document.createElement(DIV);
+
+        console.log(this);
+        thumbnail.appendChild(this.createThumbnail());
+        thumbnail.appendChild(this.createOverlayPlayButton());
+
+        thumbnailBlock.className = "thumbnail-block";
+        thumbnailBlock.appendChild(thumbnail);
+        thumbnailBlock.appendChild(this.createThumbnailBlurb());
+
+        return thumbnailBlock;
+    }
+
+    createIframe(author = AUTHORS.me) {
+        return new DOMParser().parseFromString(this.iframe, "text/xml");
+    }
+}
+
+class VideoChatBlock extends ChatBlock {
+    constructor(videos = []) {
+        super(CHAT_TYPE.video);
+        this.videos = videos;
+    }
+
+    createBlock(author = AUTHORS.me) {
+        let chatBlock = document.createElement(DIV);
+        chatBlock.className = "bubble " +
+            (author === AUTHORS.me ? "right-bubble me" : "left-bubble") +
+            " " + this.chatType;
+
+        this.videos.forEach(video => {
+            chatBlock.appendChild(video.createBlock(author));
+        });
+
+        return chatBlock;
     }
 }
