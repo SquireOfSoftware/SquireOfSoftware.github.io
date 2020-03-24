@@ -19,15 +19,13 @@ function getConversation() {
                 new TextChatBlock(() => "The first is Orion Project that I first worked on at Uni", AUTHORS.you),
                 new TextChatBlock(() => "In this project I helped coordinate about 24 other students in Automating the flight of a programmable drone", AUTHORS.you),
                 new ImageChatBlock(
+                "Orion gallery",
                 [
                     new Image(
                         "https://www.parrot.com/files/s3fs-public/styles/se_block_thumbnail/public/ar_drone_power_edition_orange.png?itok=kbpTR9VK",
                         "https://www.parrot.com/files/s3fs-public/styles/product_teaser_hightlight/public/ar_drone_power_edition_orange.png?itok=mMioXD5X",
                         "The aim of the project is to have a Parrot AR Drone (picture taken from the official website) fly autonomously " +
-                         "(that is, without any human directives apart from mapping a route).",
-                        () => {
-                            console.log("hello");
-                        }
+                         "(that is, without any human directives apart from mapping a route)."
                     )
                 ],
                 AUTHORS.you)
@@ -97,30 +95,33 @@ class Image {
         this.thumbnailURL = thumbnailURL !== undefined? thumbnailURL : mainImageURL;
         this.mainImageURL = mainImageURL;
         this.blurb = blurb;
-        this.clickHandler = clickHandler;
     }
 
     createImage() {
         let imageBlock = document.createElement(IMG);
         imageBlock.className = "clickableImage";
         imageBlock.src = this.thumbnailURL;
-        imageBlock.onclick = this.clickHandler;
         return imageBlock;
     }
 }
 
 class ImageChatBlock extends ChatBlock {
-    constructor(images, clickHandler, author) {
+    constructor(title, images, clickHandler, author) {
         super(CHAT_TYPE.photo, author);
+        this.title = title;
         this.images = images;
         this.clickHandler = clickHandler;
     }
 
     createBlock() {
         let imageChatBlock = document.createElement(DIV);
-        this.images.forEach(imageBlock => {
-            imageChatBlock.appendChild(imageBlock.createImage());
-        });
+        for(let i = 0; i < this.images.length; i++) {
+            let imageBlock = this.images[i].createImage();
+            imageBlock.onclick = () => {
+                setGallery(this.title, this.images, i);
+            };
+            imageChatBlock.appendChild(imageBlock);
+        }
         return imageChatBlock;
     }
 }

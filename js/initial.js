@@ -33,6 +33,10 @@ function createProfilePic() {
     return profilePic;
 }
 
+document.getElementById("gallery-closure").onclick = (event) => {
+    document.getElementById("gallery-overlay").style.display = "none";
+};
+
 window.onload = function() {
     console.log(document.getElementById("chatbox").scrollTop);
     document.getElementById("chatbox").scrollTop = document.getElementById("chatbox").scrollHeight;
