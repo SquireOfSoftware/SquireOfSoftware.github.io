@@ -90,7 +90,7 @@ function getConversation() {
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock("We just barely managed to get a demonstration up and running. You can see in the video below <Insert video here>"),
+                new TextChatBlock("We just barely managed to get a demonstration up and running. You can see in the video below:"),
                 new VideoChatBlock(
                     [
                         new Video(
@@ -256,7 +256,7 @@ class Video {
 
     createThumbnail() {
         let thumbnailImage = document.createElement(IMG);
-        thumbnailImage.className = "clickableImage";
+        thumbnailImage.className = "clickableImage video-thumbnail-image";
         thumbnailImage.src = this.thumbnailURL;
         thumbnailImage.onclick = () => {};
         return thumbnailImage;
@@ -288,9 +288,11 @@ class Video {
         let thumbnailBlock = document.createElement(DIV);
 
         let thumbnail = document.createElement(DIV);
+        thumbnail.className = "thumbnail-block";
 
         console.log(this);
         thumbnail.appendChild(this.createThumbnail());
+
         thumbnail.appendChild(this.createOverlayPlayButton());
 
         thumbnailBlock.className = "thumbnail-block";

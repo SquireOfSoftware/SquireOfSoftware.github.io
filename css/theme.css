@@ -116,26 +116,25 @@ div {
     max-width: 150px;
     height: 100%;
     width: 100%;
-    position: relative;
-    top: -94px;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 
+.thumbnail-block {
+    position: relative;
+    display: flex;
+}
+
 .thumbnail-overlay:hover {
-    background-color: black;
-    opacity: 0.8;
+    opacity: 0.1;
 }
 
 .thumbnail-blurb {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-.thumbnail-block {
-    display: flex;
 }
 
 /* IDs */
