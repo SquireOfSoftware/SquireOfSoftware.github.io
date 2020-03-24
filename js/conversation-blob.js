@@ -1,10 +1,37 @@
 function getConversation() {
     return [
-        new ChatBurst(undefined, chatBlock = ["hello world!","Tell me about some of the things you got up to"], author = AUTHORS.me),
-        new ChatBurst(undefined,["There are a few projects which I have gotten myself involved over the years"], AUTHORS.you),
-        new ChatBurst(undefined,
-            ["The first is Orion Project that I first worked on at Uni",
-            "In this project I helped coordinate about 24 other students in Automating the flight of a programmable drone"], 
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock(() => "hello world!", AUTHORS.me),
+                new TextChatBlock(() => "Tell me about some of the things you got up to", AUTHORS.me)
+            ],
+            author = AUTHORS.me),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock(() => "There are a few projects which I have gotten myself involved over the years", AUTHORS.you)
+            ],
+            AUTHORS.you),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock(() => "The first is Orion Project that I first worked on at Uni", AUTHORS.you),
+                new TextChatBlock(() => "In this project I helped coordinate about 24 other students in Automating the flight of a programmable drone", AUTHORS.you),
+                new ImageChatBlock(
+                [
+                    new Image(
+                        "https://www.parrot.com/files/s3fs-public/styles/se_block_thumbnail/public/ar_drone_power_edition_orange.png?itok=kbpTR9VK",
+                        "https://www.parrot.com/files/s3fs-public/styles/product_teaser_hightlight/public/ar_drone_power_edition_orange.png?itok=mMioXD5X",
+                        "The aim of the project is to have a Parrot AR Drone (picture taken from the official website) fly autonomously " +
+                         "(that is, without any human directives apart from mapping a route).",
+                        () => {
+                            console.log("hello");
+                        }
+                    )
+                ],
+                AUTHORS.you)
+            ],
             AUTHORS.you)
     ];
 }
@@ -21,9 +48,9 @@ var CHAT_TYPE = {
 }
 
 class ChatBurst {
-    constructor(time = new Date(), chatBlock = [], author = AUTHORS.me) {
+    constructor(time = new Date(), chatBlocks = [], author = AUTHORS.me) {
         this.time = time;
-        this.chatBlock = chatBlock;
+        this.chatBlocks = chatBlocks;
         this.author = author;
     }
 
@@ -33,25 +60,84 @@ class ChatBurst {
 
         console.log(this);
 
-        this.chatBlock.forEach(sentence => {
-            chatBurst.appendChild(this.createSentence(this.time, sentence, this.author));
+        this.chatBlocks.forEach(chatBlock => {
+            chatBurst.appendChild(chatBlock.createBlock());
         });
         return chatBurst;
-    }
-
-    createSentence(time, sentence, author, chatType) {
-        let sentenceBlock = document.createElement(DIV);
-        sentenceBlock.className = "bubble " +
-            (author === AUTHORS.me ? "right-bubble me" : "left-bubble");
-        sentenceBlock.innerText = sentence;
-        return sentenceBlock;
     }
 }
 
 class ChatBlock {
-    constructor(chatType = CHAT_TYPE.text, messageFunction = () => {}) {
+    constructor(chatType = CHAT_TYPE.text, author) {
         this.chatType = chatType;
+        this.author = author;
+    }
+
+    createBlock() {}
+}
+
+class TextChatBlock extends ChatBlock {
+    constructor(messageFunction = () => {}, author) {
+        super(CHAT_TYPE.text, author);
         this.messageFunction = messageFunction;
+    }
+
+    createBlock() {
+        let sentenceBlock = document.createElement(DIV);
+        sentenceBlock.className = "bubble " +
+            (this.author === AUTHORS.me ? "right-bubble me" : "left-bubble") +
+            " " + this.chatType;
+        sentenceBlock.innerText = this.messageFunction();
+        return sentenceBlock;
     }
 }
 
+class Image {
+    constructor(thumbnailURL, mainImageURL, blurb, clickHandler = () => {}) {
+        this.thumbnailURL = thumbnailURL !== undefined? thumbnailURL : mainImageURL;
+        this.mainImageURL = mainImageURL;
+        this.blurb = blurb;
+        this.clickHandler = clickHandler;
+    }
+
+    createImage() {
+        let imageBlock = document.createElement(IMG);
+        imageBlock.className = "clickableImage";
+        imageBlock.src = this.thumbnailURL;
+        imageBlock.onclick = this.clickHandler;
+        return imageBlock;
+    }
+}
+
+class ImageChatBlock extends ChatBlock {
+    constructor(images, clickHandler, author) {
+        super(CHAT_TYPE.photo, author);
+        this.images = images;
+        this.clickHandler = clickHandler;
+    }
+
+    createBlock() {
+        let imageChatBlock = document.createElement(DIV);
+        this.images.forEach(imageBlock => {
+            imageChatBlock.appendChild(imageBlock.createImage());
+        });
+        return imageChatBlock;
+    }
+}
+
+class Video {
+    constructor(thumbnailURL, mainVideoURL, blurb, clickHandler = () => {}) {
+        this.thumbnailURL = thumbnailURL;
+        this.mainVideoURL = mainVideoURL;
+        this.blurb = blurb;
+        this.clickHandler = clickHandler;
+    }
+
+    createThumbnail() {
+        let thumbnailBlock = document.createElement(IMG);
+        thumbnailBlock.className = "clickableImage";
+        thumbnailBlock.src = this.thumbnailURL;
+        thumbnailBlock.onclick = this.clickHandler;
+        return thumbnailBlock;
+    }
+}

@@ -1,5 +1,6 @@
 console.log("hello world");
 const DIV = "div";
+const IMG = "img";
 
 const CONVERSATION = getConversation();
 

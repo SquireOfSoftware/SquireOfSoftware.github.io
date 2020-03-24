@@ -82,6 +82,10 @@ div {
     color: #fff;
 }
 
+.clickableImage {
+    cursor: pointer;
+}
+
 /* IDs */
 #browser-screen {
     display:flex;
