@@ -18,14 +18,16 @@ function getConversation() {
             [
                 new TextChatBlock(() => "The first is Orion Project that I first worked on at Uni", AUTHORS.you),
                 new TextChatBlock(() => "In this project I helped coordinate about 24 other students in Automating the flight of a programmable drone", AUTHORS.you),
+                new TextChatBlock(() => "The aim of the project is to have a Parrot AR Drone (picture taken from the official website) fly autonomously " +
+                                         "(that is, without any human directives apart from mapping a route).",
+                                         AUTHORS.you),
                 new ImageChatBlock(
                 "Orion gallery",
                 [
                     new Image(
                         "https://www.parrot.com/files/s3fs-public/styles/se_block_thumbnail/public/ar_drone_power_edition_orange.png?itok=kbpTR9VK",
                         "https://www.parrot.com/files/s3fs-public/styles/product_teaser_hightlight/public/ar_drone_power_edition_orange.png?itok=mMioXD5X",
-                        "The aim of the project is to have a Parrot AR Drone (picture taken from the official website) fly autonomously " +
-                         "(that is, without any human directives apart from mapping a route)."
+                        "This is the programmable drone that we were to use"
                     )
                 ],
                 AUTHORS.you)
@@ -108,6 +110,10 @@ class Image {
         let imageBlock = document.createElement(IMG);
         imageBlock.src = this.mainImageURL;
         return imageBlock;
+    }
+
+    getBlurb() {
+        return this.blurb;
     }
 }
 

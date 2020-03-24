@@ -100,6 +100,10 @@ div {
     align-items: center;
 }
 
+.main-image-blurb {
+    overflow
+}
+
 /* IDs */
 #browser-screen {
     display:flex;
@@ -218,8 +222,15 @@ div {
     flex: 2;
     background-color: white;
     justify-content: center;
-        align-items: center;
-        display: flex;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+}
+
+#current-gallery-blurb {
+    overflow-y: scroll;
+    max-height: 100px;
 }
 
 #next-gallery-item {
