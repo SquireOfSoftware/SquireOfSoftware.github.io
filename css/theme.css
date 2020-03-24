@@ -39,6 +39,10 @@ div {
     display: flex;
 }
 
+.bubble:hover {
+    opacity:0.8;
+}
+
 .left-bubble {
     margin-left: 5px;
     align-self: flex-start;
@@ -142,6 +146,10 @@ div {
     text-decoration: none;
     color: white;
     margin-left: 10px;
+}
+
+#contact-details > a.icon:hover {
+    color: #132844;
 }
 
 #main-profile-picture {

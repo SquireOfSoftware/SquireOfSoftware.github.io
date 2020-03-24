@@ -19,12 +19,7 @@ function createBlurb(chat = undefined) {
             blurb.appendChild(createProfilePic());
         }
 
-        let chatBurst = document.createElement(DIV);
-        chatBurst.className = "chat-burst";
-        
-        chat.chat.forEach(sentence => {
-            chatBurst.appendChild(createSentence(chat.time, sentence, chat.author));
-        });
+        let chatBurst = chat.createBlurb();
         blurb.appendChild(chatBurst);
     }
     return blurb;
@@ -37,10 +32,8 @@ function createProfilePic() {
     return profilePic;
 }
 
-function createSentence(time, sentence, author) {
-    let sentenceBlock = document.createElement(DIV);
-    sentenceBlock.className = "bubble " + 
-        (author === AUTHORS.me ? "right-bubble me" : "left-bubble");
-    sentenceBlock.innerText = sentence;
-    return sentenceBlock;
+window.onload = function() {
+    console.log(document.getElementById("chatbox").scrollTop);
+    document.getElementById("chatbox").scrollTop = document.getElementById("chatbox").scrollHeight;
+    console.log(document.getElementById("chatbox").scrollTop);
 }
