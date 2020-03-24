@@ -97,10 +97,16 @@ class Image {
         this.blurb = blurb;
     }
 
-    createImage() {
+    createThumbnail() {
         let imageBlock = document.createElement(IMG);
-        imageBlock.className = "clickableImage";
         imageBlock.src = this.thumbnailURL;
+        imageBlock.className = "clickableImage";
+        return imageBlock;
+    }
+
+    createMainImage() {
+        let imageBlock = document.createElement(IMG);
+        imageBlock.src = this.mainImageURL;
         return imageBlock;
     }
 }
@@ -116,10 +122,11 @@ class ImageChatBlock extends ChatBlock {
     createBlock() {
         let imageChatBlock = document.createElement(DIV);
         for(let i = 0; i < this.images.length; i++) {
-            let imageBlock = this.images[i].createImage();
+            let imageBlock = this.images[i].createThumbnail();
             imageBlock.onclick = () => {
                 setGallery(this.title, this.images, i);
             };
+            imageBlock.className = "clickableImage";
             imageChatBlock.appendChild(imageBlock);
         }
         return imageChatBlock;
