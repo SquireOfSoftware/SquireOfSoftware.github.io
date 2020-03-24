@@ -84,10 +84,17 @@ div {
 
 .clickableImage {
     cursor: pointer;
+    max-width: 150px;
+    max-height: 150px;
+    height: auto;
 }
 
 .icon {
     color: white;
+}
+
+.button-disabled {
+    cursor: initial;
 }
 
 .gallery-navigation {
@@ -117,7 +124,6 @@ div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 1000px;
     margin-left: 10px;
 }
 
@@ -210,8 +216,8 @@ div {
     flex: 3;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
+    max-height: 80%;
 }
 
 #previous-gallery-item {
@@ -219,18 +225,19 @@ div {
 }
 
 #current-gallery-item {
-    flex: 2;
     background-color: white;
-    justify-content: center;
-    align-items: center;
     display: flex;
     padding: 10px;
     flex-direction: column;
+    overflow: scroll;
+    max-width: 80%;
 }
 
 #current-gallery-blurb {
     overflow-y: scroll;
     max-height: 100px;
+    min-height: 50px;
+    text-align: center;
 }
 
 #next-gallery-item {
@@ -248,8 +255,8 @@ div {
 }
 
 #gallery-listings {
-    flex: 1;
     overflow-y: scroll;
+    justify-self: flex-end;
 }
 
 #gallery-scroll {
