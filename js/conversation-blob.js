@@ -16,7 +16,7 @@ function getConversation() {
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock("The first is Orion Project that I first worked on at Uni"),
+                new TextChatBlock("The first is 'Orion' Project that I first worked on at Uni"),
                 new TextChatBlock("In this project I helped coordinate about 24 other students in Automating the flight of a programmable drone"),
                 new TextChatBlock("The aim of the project is to have a Parrot AR Drone (picture taken from the official website) fly autonomously " +
                                          "(that is, without any human directives apart from mapping a route)."),
@@ -47,18 +47,18 @@ function getConversation() {
                     [
                         new Image(
                             undefined,
-                            "img/Orion Infrastructure Diagram.png",
+                            "img/Orion/Orion Infrastructure Diagram.png",
                             "This is the initial architecture that we designed"
                         ),
                         new Image(
                             undefined,
-                            "img/Orion System Design.png",
+                            "img/Orion/Orion System Design.png",
                             "This is the design that we ended up following"
                         )
                     ]),
                 new TextChatBlock("We used Angular JS front end (version 1) for our client front end"),
                 new TextChatBlock("We used Django as our front end, backend which would centralise the web API calls to the database"),
-                new TextChatBlock("Follow by a MySQL database as the main communication channel, between the web API calls and the asynchronous drone control back end"),
+                new TextChatBlock("Followed by a MySQL database as the main communication channel, between the web API calls and the asynchronous drone control back end"),
                 new TextChatBlock("With ROS (Robot Operating System) as our drone control sub-system"),
                 new TextChatBlock("And some on board shell scripts running on the Drone to enable the pull and pushing of notifications")
             ],
@@ -67,7 +67,17 @@ function getConversation() {
         new ChatBurst(
             undefined,
             [
-                new TextChatBlock("Wow that sounds like a really large project."),
+                new TextChatBlock("In essence, we had the Django server submitting a 'mission' into the database and then constantly poll the database for updates."),
+                new TextChatBlock("When a 'mission' was running or in progress, a ROS (Robot Operating System) process would constantly poll for an in progress 'mission' and have a drone follow the flight path laid out."),
+                new TextChatBlock("All the while it is receiving photos from the drone as it flies around and storing in the database."),
+                new TextChatBlock("The Django server would pick up the photos and display them to the user as the drone flies around.")
+            ],
+            AUTHORS.you
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock("Wow that sounds like a really large and complex project."),
                 new TextChatBlock("What role did you play in this?")
             ],
             AUTHORS.me
@@ -112,6 +122,146 @@ function getConversation() {
             [
                 new TextChatBlock("I read on your resume that you have worked with a some Machine learning and neural networks"),
                 new TextChatBlock("Can you tell me about that project?")
+            ],
+            AUTHORS.me
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock("Sure. Here is the link:"),
+                new LinkChatBlock("https://github.com/SquireOfSoftware/NNFL/tree/master/Project"),
+                new TextChatBlock("So basically this is a Matlab project where (as a team of 3) we had to find a use case for a neural network and develop a solution to it using Matlab"),
+                new TextChatBlock("My group opted for a hand controlled music player, where we would make hand gestures and have the music player respond accordingly")
+            ],
+            AUTHORS.you
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock("This came with a lot of challenges:"),
+                new TextChatBlock("The first was identifying what our inputs and outputs would be (which turned out to be the raw positioning of all 5 fingers for 60 seconds, which comes out at about 300 data input points per recording (+ 1 additional input for the bias node))"),
+                new TextChatBlock("The second was identifying which neural network type we would use (given our lack of understanding we opted for a back propagation network)"),
+                new TextChatBlock("The third was identifying the activation function that we would use, we used a sigmoid function"),
+                new TextChatBlock("The last challenge was obtaining 'enough' data to determine ")
+            ],
+            AUTHORS.you
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new ImageChatBlock(
+                    "Hand Controlled Music Player",
+                    [
+                        new Image(
+                            undefined,
+                            "https://raw.githubusercontent.com/SquireOfSoftware/NNFL/master/Project/graphs/100%20neurons%20200%20cycles%200-01%20n.png",
+                            "This is a sample of the learning curve of the network"
+                        ),
+                        new Image(
+                            undefined,
+                            "img/Neural Network/Sample Neural Network capture.gif",
+                            "This is a sample capture of a handle gesture swiping right"
+                        )
+                    ]
+                ),
+                new TextChatBlock("We used LeapMotion to record hand gestures (which is 3 infrared sensors stitched together to triangulate rough 3 dimensional coordinates for anything that inside its sensor range)")
+            ],
+            AUTHORS.you
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock("That's cool"),
+                new TextChatBlock("So what did you learn from the project?")
+            ],
+            AUTHORS.me
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock("Here are some of the slides from our presentation"),
+                new ImageChatBlock(
+                    "Neural Network presentation",
+                    [
+                        new Image(
+                            undefined,
+                            "img/Neural Network/Neural Network design.png",
+                            ""
+                        ),
+                        new Image(
+                            undefined,
+                            "img/Neural Network/Neural Network implementation.png",
+                            ""
+                        ),
+                        new Image(
+                            undefined,
+                            "img/Neural Network/Training progress.png",
+                            ""
+                        ),
+                        new Image(
+                            undefined,
+                            "img/Neural Network/Training results.png",
+                            ""
+                        ),
+                        new Image(
+                            undefined,
+                            "img/Neural Network/Training results 2.png",
+                            ""
+                        ),
+                        new Image(
+                            undefined,
+                            "img/Neural Network/Lessons learnt.png",
+                            ""
+                        ),
+                        new Image(
+                            undefined,
+                            "img/Neural Network/Reflections.png",
+                            ""
+                        )
+                    ]
+                ),
+                new TextChatBlock("We got it up to about a 47.5% recognition accuracy across 4 gestures.")
+            ],
+            AUTHORS.you
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock("Wow, are there any extra curricular work that you have worked on?")
+            ],
+            AUTHORS.me
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock("There is one project that I have worked on outside of work and university:"),
+                new ImageChatBlock(
+                    "JSPets",
+                    [
+                        new Image(
+                            undefined,
+                            "img/JSPets/JSPets.gif",
+                            "Here is a rough sample of what you can do"
+                        )
+                    ]
+                ),
+                new LinkChatBlock("https://squireofsoftware.github.io/JSPets/"),
+                new TextChatBlock("This is just my attempt at recreating a digivice/tamagotchi in HTML5 with vanilla Javascript ECMA 6"),
+                new TextChatBlock("The game follows a duckling which you can 'walk with' by tapping the screen and explore the wonderful world of Tasmania and 'battle' native animals that you encounter"),
+                new TextChatBlock("As it stands it is minimally complete, there are a lot of other features which were never implemented, this includes:"),
+                new TextChatBlock("- sound"),
+                new TextChatBlock("- tweaking the user experience to make it nicer to play"),
+                new TextChatBlock("It took me about 3 months to create all the sprites, research the Tasmanian fauna and weather patterns (to make sure that you encounter weather dependent animals) and learn enough about the Javascript browser loop and hook all of it up"),
+                new TextChatBlock("And"),
+                new LinkChatBlock("https://squireofsoftware.github.io/JSJax/"),
+                new TextChatBlock("This is just a quick go at using Angular 1 (it was the only one available at the time) to recreate a card game in the browser using Angular bidirectional state management")
+            ],
+            AUTHORS.you
+        ),
+        new ChatBurst(
+            undefined,
+            [
+                new TextChatBlock("Wow that cool, thanks for letting me know")
             ],
             AUTHORS.me
         )
