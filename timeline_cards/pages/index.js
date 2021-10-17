@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import LinkCard from './LinkCard'
 
 export default function Home() {
   return (
@@ -21,36 +22,25 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://github.com/SquireOfSoftware" className={styles.card}>
-            <h2>Main Github page</h2>
-            <p>For seeing what I have done outside of work.</p>
-          </a>
+          <LinkCard link="https://github.com/SquireOfSoftware"
+                    title="Main Github page"
+                    blurb="For seeing what I have done outside of work."/>
 
-          <a href="https://github.com/SquireOfSoftware/Orion" className={styles.card}>
-            <h2>Autonomous Drone Flight system</h2>
-            <p>Aiming to make drone flight autonomous via just highlighting key checkpoints on an iPad</p>
-          </a>
+          <LinkCard link="https://github.com/SquireOfSoftware/Orion"
+                    title="Orion"
+                    blurb="An Autonomous Drone Flight system. Aiming to make drone flight autonomous via just highlighting key checkpoints on an iPad"/>
 
-          <a href="https://github.com/SquireOfSoftware/Orion" className={styles.card}>
-            <h2>Autonomous Drone Flight system</h2>
-            <p>Aiming to make drone flight autonomous via just highlighting key checkpoints on an iPad</p>
-          </a>
+          <LinkCard link="https://squireofsoftware.github.io/JSPets/"
+                    title="JSPets"
+                    blurb="A digital pet experience, walking around Tasmania"/>
 
-          <a href="https://squireofsoftware.github.io/JSPets/" className={styles.card}>
-            <h2>JSPets</h2>
-            <p>A digital pet experience, walking around Tasmania</p>
-          </a>
+          <LinkCard link="https://github.com/SquireOfSoftware/NNFL/tree/master/Project/"
+                    title="Hand Gesture Music Player"
+                    blurb="Controlling your music player via hand gestures in Matlab with a Neural Network behind it"/>
 
-          <a href="https://github.com/SquireOfSoftware/NNFL/tree/master/Project" className={styles.card}>
-            <h2>Hand Gesture Music Player</h2>
-            <p>Controlling your music player via hand gestures in Matlab with a Neural Network behind it</p>
-          </a>
-
-          <a href="https://github.com/SquireOfSoftware/check-in" className={styles.card}>
-            <h2>Check in</h2>
-            <p>A sign in system to track the people who enter a church for the purposes of resource provisioning and forecasting for events and food</p>
-          </a>
-
+          <LinkCard link="https://github.com/SquireOfSoftware/check-in"
+                    title="Check in"
+                    blurb="A sign in system to track the people who enter a church for the purposes of resource provisioning and forecasting for events and food"/>
         </div>
       </main>
 
