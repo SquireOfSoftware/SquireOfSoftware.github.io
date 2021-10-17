@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import LinkCard from './LinkCard'
+import LinkCard from './cards/LinkCard'
+import Card from './cards/Card'
 
 export default function Home() {
   return (
@@ -22,9 +23,10 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <LinkCard link="https://github.com/SquireOfSoftware"
-                    title="Main Github page"
-                    blurb="For seeing what I have done outside of work."/>
+          <Card link="https://github.com/SquireOfSoftware"
+                title="Main Github page"
+                blurb="For seeing what I have done outside of work."
+                image="./stars_night_sky_base.jpeg"/>
 
           <LinkCard link="https://github.com/SquireOfSoftware/Orion"
                     title="Orion"
