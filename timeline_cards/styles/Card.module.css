@@ -34,7 +34,8 @@
   font-size: 1.5rem;
 }
 
-.card p {
+.card p,
+.card__fullscreen p{
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;

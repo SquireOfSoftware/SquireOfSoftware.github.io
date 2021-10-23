@@ -6,12 +6,22 @@ import {motion, AnimatePresence} from 'framer-motion'
 // seems to be out dated
 // recreate this https://www.framer.com/docs/animate-shared-layout/
 
+const cardVariants = {
+  shown: {
+    opacity: "100%"
+  },
+  hidden: {
+    opacity: "0%"
+  }
+}
+
 export default function Card(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [originalDimensions, setOriginalDimensions] = useState(null);
   const toggleOpen = (event) => {
     setIsOpen(!isOpen);
-    setOriginalDimensions(locateParentDiv(event.target));
+    const parentDiv = locateParentDiv(event.target);
+    setOriginalDimensions(parentDiv);
   }
 
   function locateParentDiv(initialElement) {
@@ -62,35 +72,43 @@ function Content({title, image, blurb, link}) {
 
 function FullScreenContent({title, image, blurb, link, closeHandler, originalDimensions}) {
   const originalDiv = {
-                          originX: originalDimensions.offsetLeft,
-                          originY: originalDimensions.offsetTop,
+                          left: originalDimensions.offsetLeft,
+                          top: originalDimensions.offsetTop,
                           height: originalDimensions.offsetHeight,
-                          width: originalDimensions.offsetWidth
+                          width: originalDimensions.offsetWidth,
+                          scrollTop: originalDimensions.scrollHeight,
+                          pageOffset: window.pageYOffset,
+                          exitOffset: window.pageYOffset
                         };
   console.log({originalDiv})
   return (<motion.div
-                  layout
-                  initial={{ opacity: 0,
+                  initial={{
                              width: originalDiv.width,
                              height: originalDiv.height,
-                             x: originalDiv.originX,
-                             y: originalDiv.originY,
-                             position: "absolute"}}
-                  animate={{ opacity: 1,
+                             left: originalDiv.left,
+                             top: originalDiv.top + window.pageYOffset,
+                             position: "absolute",
+                            border: "1px solid #eaeaea",
+                            borderRadius: "10px"
+                            }}
+                  animate={{
                              width: "100%",
                              height: "100%",
                              position: "fixed",
-                             x: 0,
-                             top: 0}}
-                  exit={{ opacity: 0,
+                             left: 0,
+                             top: 0,
+                             border: 0,
+                             }}
+                  exit={{
                           width: originalDiv.width,
                           height: originalDiv.height,
-                          x: originalDiv.originX,
-                          y: originalDiv.originY,
-                          position: "absolute"
-                           }}
+                          left: originalDiv.left,
+                          top: originalDiv.top,
+                          position: "absolute",
+                          border: "1px solid #eaeaea",
+                          }}
                   className={styles.card__fullscreen}
-                onClick={closeHandler}
+                  onClick={closeHandler}
                 >
               <img src={image} className={styles.card__img_fullscreen}/>
               <div className={styles.card__body}>
