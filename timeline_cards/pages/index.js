@@ -29,7 +29,8 @@ export default function Home() {
               <Card link="https://github.com/SquireOfSoftware"
                     title="Main Github page"
                     blurb="For seeing what I have done outside of work."
-                    image="./stars_night_sky_base.jpeg"/>
+                    image="./stars_night_sky_base.jpeg"
+                    content="Hello world"/>
 
               <Card link="https://github.com/SquireOfSoftware/Orion"
                         title="Orion"

@@ -65,6 +65,7 @@
   flex-direction: column;
   background-color: white;
   overflow: hidden;
+  z-index: 10;
 }
 
 .card__img_fullscreen {
