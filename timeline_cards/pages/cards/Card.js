@@ -20,6 +20,7 @@ export default function Card(props) {
   const [originalDimensions, setOriginalDimensions] = useState(null);
   const toggleOpen = (event) => {
     setIsOpen(!isOpen);
+    console.log({event})
     const parentDiv = locateParentDiv(event.target);
     setOriginalDimensions(parentDiv);
   }
@@ -30,7 +31,6 @@ export default function Card(props) {
     while(parent.className !== undefined && parent.className.indexOf("overlay") === -1) {
       parent = parent.parentNode;
     }
-    console.log({parent})
     return parent
   }
 
@@ -81,12 +81,13 @@ function FullScreenContent({title, image, blurb, link, closeHandler, originalDim
                           exitOffset: window.pageYOffset
                         };
   console.log({originalDiv})
+
   return (<motion.div
                   initial={{
                              width: originalDiv.width,
                              height: originalDiv.height,
                              left: originalDiv.left,
-                             top: originalDiv.top + window.pageYOffset,
+                             top: originalDiv.top - window.pageYOffset,
                              position: "absolute",
                             border: "1px solid #eaeaea",
                             borderRadius: "10px"
@@ -98,6 +99,7 @@ function FullScreenContent({title, image, blurb, link, closeHandler, originalDim
                              left: 0,
                              top: 0,
                              border: 0,
+                             borderRadius: "0px"
                              }}
                   exit={{
                           width: originalDiv.width,
@@ -106,6 +108,7 @@ function FullScreenContent({title, image, blurb, link, closeHandler, originalDim
                           top: originalDiv.top,
                           position: "absolute",
                           border: "1px solid #eaeaea",
+                          borderRadius: "10px"
                           }}
                   className={styles.card__fullscreen}
                   onClick={closeHandler}
