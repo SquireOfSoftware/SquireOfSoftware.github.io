@@ -30,7 +30,7 @@ function createBlurb(chat = undefined) {
 
 function createProfilePic() {
     let profilePic = document.createElement("img");
-    profilePic.src = "img/profile-picture.png";
+    profilePic.src = "/archived/v1/img/profile-picture.png";
     profilePic.className = "profile-picture";
     return profilePic;
 }
