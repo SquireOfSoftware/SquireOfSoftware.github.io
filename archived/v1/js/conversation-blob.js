@@ -47,12 +47,12 @@ function getConversation() {
                     [
                         new Image(
                             undefined,
-                            "img/Orion/Orion Infrastructure Diagram.png",
+                            "/archived/v1/img/Orion/Orion Infrastructure Diagram.png",
                             "This is the initial architecture that we designed"
                         ),
                         new Image(
                             undefined,
-                            "img/Orion/Orion System Design.png",
+                            "/archived/v1/img/Orion/Orion System Design.png",
                             "This is the design that we ended up following"
                         )
                     ]),
@@ -159,7 +159,7 @@ function getConversation() {
                         ),
                         new Image(
                             undefined,
-                            "img/Neural Network/Sample Neural Network capture.gif",
+                            "/archived/v1/img/Neural Network/Sample Neural Network capture.gif",
                             "This is a sample capture of a handle gesture swiping right"
                         )
                     ]
@@ -185,37 +185,37 @@ function getConversation() {
                     [
                         new Image(
                             undefined,
-                            "img/Neural Network/Neural Network design.png",
+                            "/archived/v1/img/Neural Network/Neural Network design.png",
                             ""
                         ),
                         new Image(
                             undefined,
-                            "img/Neural Network/Neural Network implementation.png",
+                            "/archived/v1/img/Neural Network/Neural Network implementation.png",
                             ""
                         ),
                         new Image(
                             undefined,
-                            "img/Neural Network/Training progress.png",
+                            "/archived/v1/img/Neural Network/Training progress.png",
                             ""
                         ),
                         new Image(
                             undefined,
-                            "img/Neural Network/Training results.png",
+                            "/archived/v1/img/Neural Network/Training results.png",
                             ""
                         ),
                         new Image(
                             undefined,
-                            "img/Neural Network/Training results 2.png",
+                            "/archived/v1/img/Neural Network/Training results 2.png",
                             ""
                         ),
                         new Image(
                             undefined,
-                            "img/Neural Network/Lessons learnt.png",
+                            "/archived/v1/img/Neural Network/Lessons learnt.png",
                             ""
                         ),
                         new Image(
                             undefined,
-                            "img/Neural Network/Reflections.png",
+                            "/archived/v1/img/Neural Network/Reflections.png",
                             ""
                         )
                     ]
@@ -240,7 +240,7 @@ function getConversation() {
                     [
                         new Image(
                             undefined,
-                            "img/JSPets/JSPets.gif",
+                            "/archived/v1/img/JSPets/JSPets.gif",
                             "Here is a rough sample of what you can do"
                         )
                     ]
