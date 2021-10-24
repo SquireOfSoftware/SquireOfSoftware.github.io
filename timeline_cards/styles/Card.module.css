@@ -55,6 +55,10 @@
   .card {
     width: 40%;
   }
+  .card__body_fullscreen {
+    width: 800px;
+    align-self: center;
+  }
 }
 
 .container {
@@ -70,4 +74,8 @@
 
 .card__img_fullscreen {
 
+}
+
+.hidden {
+  visibility: hidden;
 }

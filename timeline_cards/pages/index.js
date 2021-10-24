@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import LinkCard from './cards/LinkCard'
 import Card from './cards/Card'
 import {AnimateSharedLayout, motion} from 'framer-motion'
 

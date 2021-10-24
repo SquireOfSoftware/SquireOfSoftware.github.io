@@ -1,10 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styles from '../../styles/Card.module.css'
 import {motion, AnimatePresence} from 'framer-motion'
-
-// tutorial: https://www.geeksforgeeks.org/animated-expanding-card-using-framer-motion-and-reactjs/
-// seems to be out dated
-// recreate this https://www.framer.com/docs/animate-shared-layout/
 
 const cardVariants = {
   shown: {
@@ -18,14 +14,29 @@ const cardVariants = {
 export default function Card(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [originalDimensions, setOriginalDimensions] = useState(null);
-  const toggleOpen = (event) => {
+  let timer;
+  const openPopup = (event) => {
     // we want to ignore the hyperlink click
     if (event.target.className.indexOf("externalLink") === -1) {
-      setIsOpen(!isOpen);
+      setIsOpen(true);
       console.log({event})
       const parentDiv = locateParentDiv(event.target);
       setOriginalDimensions(parentDiv);
+      // hide the thumbnail card
+      parentDiv.style.visibility="hidden"
     }
+  }
+
+  const closePopup = () => {
+    setIsOpen(false);
+    // not the cleanest way to "reopen" a hidden thumbnail card
+    if (timer !== undefined) {
+      timer.clearTimeout();
+    }
+    timer = setTimeout(() => {
+      console.log('Hello, World!');
+      originalDimensions.style.visibility="visible"
+    }, 500);
   }
 
   function locateParentDiv(initialElement) {
@@ -39,15 +50,17 @@ export default function Card(props) {
 
   return (
     <>
-      <div
-              style={{ pointerEvents: "auto", display: "inline-block" }}
-              className={styles.card + " overlay"}
-              onClick={toggleOpen}
-            >
-            <Content {...props} />
-      </div>
-      <AnimatePresence>{isOpen && <FullScreenContent
-                                  closeHandler={() => setIsOpen(false)}
+        <div
+            style={{ pointerEvents: "auto",
+                     display: "inline-block"}}
+            className={styles.card + " overlay"}
+            onClick={openPopup}
+          >
+            <Content isOpen={isOpen} {...props} />
+        </div>
+      <AnimatePresence>
+        {isOpen && <FullScreenContent
+                                  closeHandler={closePopup}
                                   originalDimensions={originalDimensions}
                                   content={props.content}
                                   {...props}/>
@@ -64,15 +77,21 @@ function Summary(props) {
 }
 
 function Content({title, image, blurb, link}) {
-  const imageTag = image !== undefined ? (<img src={image} className={styles.card__img}/>) : undefined
-  return (<>
+  const imageTag = image !== undefined ? (<img src={image} className={styles.card__img}/>) : undefined;
+  return (<motion.div
+            animate={{
+              display: "block"
+            }}
+            exit={{
+              display: "none"
+            }}>
             {imageTag}
             <div className={styles.card__body}>
               <h2>{title}</h2>
               <p>{blurb}</p>
               <a href={link} className="externalLink" target="_blank">Read More</a>
             </div>
-          </>)
+          </motion.div>)
 }
 
 function FullScreenContent({title, image, blurb, content, link, closeHandler, originalDimensions}) {
@@ -122,7 +141,14 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                   onClick={closeHandler}
                 >
               {imageTag}
-              <div className={styles.card__body}>
+              <motion.div
+                  initial={{
+                    width: originalDiv.width
+                  }}
+                  exit={{
+                    width: originalDiv.width
+                  }}
+                  className={styles.card__body + " " + styles.card__body_fullscreen}>
                 <h2>{title}</h2>
                 <motion.p
                     initial={{
@@ -154,6 +180,6 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                     href={link} target="_blank">
                     Read More
                 </motion.a>
-              </div>
+              </motion.div>
             </motion.div>)
 }
