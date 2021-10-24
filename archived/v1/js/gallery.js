@@ -44,7 +44,7 @@ function setNavigationArrows(images = [], index = 0) {
     if (images.length === 0) {
         nextItem.classList.add(BUTTON_DISABLED_CSS);
         nextItem.onclick = () => {};
-    } else if (index < images.length) {
+    } else if (index < images.length - 1) {
         nextItem.classList.remove(BUTTON_DISABLED_CSS);
         nextItem.onclick = () => {
             setNewMainImage(images, index + 1);
