@@ -19,7 +19,7 @@ export default function Card(props) {
     // we want to ignore the hyperlink click
     if (event.target.className.indexOf("externalLink") === -1) {
       setIsOpen(true);
-      console.log({event})
+      console.debug({event})
       const parentDiv = locateParentDiv(event.target);
       setOriginalDimensions(parentDiv);
       // hide the thumbnail card
@@ -31,10 +31,9 @@ export default function Card(props) {
     setIsOpen(false);
     // not the cleanest way to "reopen" a hidden thumbnail card
     if (timer !== undefined) {
-      timer.clearTimeout();
+      clearTimeout(timer);
     }
     timer = setTimeout(() => {
-      console.log('Hello, World!');
       originalDimensions.style.visibility="visible"
     }, 500);
   }
@@ -50,14 +49,12 @@ export default function Card(props) {
 
   return (
     <>
-        <div
-            style={{ pointerEvents: "auto",
-                     display: "inline-block"}}
-            className={styles.card + " overlay"}
-            onClick={openPopup}
-          >
-            <Content isOpen={isOpen} {...props} />
-        </div>
+      <div
+          className={styles.card + " overlay"}
+          onClick={openPopup}
+        >
+          <Content isOpen={isOpen} {...props} />
+      </div>
       <AnimatePresence>
         {isOpen && <FullScreenContent
                                   closeHandler={closePopup}
@@ -78,20 +75,14 @@ function Summary(props) {
 
 function Content({title, image, blurb, link}) {
   const imageTag = image !== undefined ? (<img src={image} className={styles.card__img}/>) : undefined;
-  return (<motion.div
-            animate={{
-              display: "block"
-            }}
-            exit={{
-              display: "none"
-            }}>
+  return (<>
             {imageTag}
             <div className={styles.card__body}>
               <h2>{title}</h2>
               <p>{blurb}</p>
               <a href={link} className="externalLink" target="_blank">Read More</a>
             </div>
-          </motion.div>)
+          </>)
 }
 
 function FullScreenContent({title, image, blurb, content, link, closeHandler, originalDimensions}) {
@@ -104,7 +95,7 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                           pageOffset: window.pageYOffset,
                           exitOffset: window.pageYOffset
                         };
-  console.log({originalDiv})
+  console.debug({originalDiv})
   const imageTag = image !== undefined ?
         (<img src={image} className={styles.card__img_fullscreen}/>) :
         undefined
@@ -142,44 +133,43 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                 >
               {imageTag}
               <motion.div
+                layout
+                initial={{
+                  display: "none"
+                }}
+                animate={{
+                  display: "block"
+                }}
+                exit={{
+                  display: "none"
+                }}
+                className={styles.card__body + " " + styles.card__body_fullscreen}
+                >
+                <h2>
+                  {title}
+                </h2>
+                <div>
+                  {content}
+                </div>
+              </motion.div>
+              <motion.div
                   initial={{
-                    width: originalDiv.width
+                    width: originalDiv.width,
+                    display: "none"
                   }}
                   exit={{
-                    width: originalDiv.width
+                    width: originalDiv.width,
+                    display: "block",
+                    transition: {
+                      type: "tween"
+                    }
                   }}
                   className={styles.card__body + " " + styles.card__body_fullscreen}>
                 <h2>{title}</h2>
-                <motion.p
-                    initial={{
-                      display: "none"
-                    }}
-                    exit={{
-                      display: "block"
-                    }}
-                    >{blurb}</motion.p>
-                <motion.div
-                    layout
-                    initial={{
-                      display: "none"
-                    }}
-                    animate={{
-                      display: "block"
-                    }}
-                    exit={{
-                      display: "none"
-                    }}
-                >{content}</motion.div>
-                <motion.a
-                    initial={{
-                      display: "none"
-                    }}
-                    exit={{
-                      display: "block"
-                    }}
-                    href={link} target="_blank">
+                <p>{blurb}</p>
+                <a href={link} target="_blank">
                     Read More
-                </motion.a>
+                </a>
               </motion.div>
             </motion.div>)
 }

@@ -11,7 +11,8 @@
   background-color: white;
 }
 
-.card::after {
+.card::after
+.card__fullscreen::after {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   opacity: 0;
 }
