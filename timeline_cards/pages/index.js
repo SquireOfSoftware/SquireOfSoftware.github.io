@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Card from './cards/Card'
 import {AnimateSharedLayout, motion} from 'framer-motion'
+import OrionPage from './orion/Orion'
+import content from './api/content'
 
 export default function Home() {
   return (
@@ -25,15 +27,17 @@ export default function Home() {
         <div>
           <AnimateSharedLayout>
             <motion.div layout className={styles.grid}>
-              <Card link="https://github.com/SquireOfSoftware"
-                    title="Main Github page"
-                    blurb="For seeing what I have done outside of work."
-                    image="./stars_night_sky_base.jpeg"
-                    content="Hello world"/>
+              <Card link={content.github.thumbnail.link}
+                    title={content.github.thumbnail.title}
+                    blurb={content.github.thumbnail.blurb}
+                    image={content.github.thumbnail.image}
+                    content={content.github.pages.content}/>
 
-              <Card link="https://github.com/SquireOfSoftware/Orion"
-                        title="Orion"
-                        blurb="An Autonomous Drone Flight system. Aiming to make drone flight autonomous via just highlighting key checkpoints on an iPad"/>
+              <Card link={content.orion.thumbnail.link}
+                    title={content.orion.thumbnail.title}
+                    blurb={content.orion.thumbnail.blurb}
+                    image={content.orion.thumbnail.image}
+                    content={(<OrionPage />)}/>
 
               <Card link="https://squireofsoftware.github.io/JSPets/"
                         title="JSPets"

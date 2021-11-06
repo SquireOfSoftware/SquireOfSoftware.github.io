@@ -25,5 +25,9 @@ li {
 }
 
 li.div:not(:last-child) {
-   padding-bottom: 3px;
+  padding-bottom: 3px;
+}
+
+p {
+  padding-bottom: 10px;
 }
