@@ -1,0 +1,15 @@
+.systemDiagram {
+  width: 100%;
+  height: auto;
+}
+
+.stickyHeading {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  line-height: 2em;
+}
+
+.embeddedVideo {
+  width: 100%;
+}
