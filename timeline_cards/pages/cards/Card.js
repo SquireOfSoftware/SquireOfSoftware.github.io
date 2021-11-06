@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from '../../styles/Card.module.css'
 import {motion, AnimatePresence} from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const cardVariants = {
   shown: {
@@ -129,9 +131,32 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                           borderRadius: "10px"
                           }}
                   className={styles.card__fullscreen}
-                  onClick={closeHandler}
                 >
               {imageTag}
+              <motion.div
+                initial={{
+                  top: "-10em",
+                  transition:{
+                    delay: 5
+                  }
+                }}
+                animate={{
+                  top: "-3em"
+                }}
+                exit={{
+                  top: "-10em",
+                  transition: {
+                    delay: 0
+                  }
+                }}
+                className={styles.card__close_fullscreen}
+                onClick={closeHandler}
+                >
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  className={styles.card__close_symbol}
+                />
+              </motion.div>
               <motion.div
                 layout
                 initial={{

@@ -3,7 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Card from './cards/Card'
 import {AnimateSharedLayout, motion} from 'framer-motion'
-import OrionPage from './orion/Orion'
+import OrionPage from './content/Orion'
+import MainPage from './content/Main'
 import content from './api/content'
 
 export default function Home() {
@@ -30,13 +31,11 @@ export default function Home() {
               <Card link={content.github.thumbnail.link}
                     title={content.github.thumbnail.title}
                     blurb={content.github.thumbnail.blurb}
-                    image={content.github.thumbnail.image}
-                    content={content.github.pages.content}/>
+                    content={(<MainPage />)}/>
 
               <Card link={content.orion.thumbnail.link}
                     title={content.orion.thumbnail.title}
                     blurb={content.orion.thumbnail.blurb}
-                    image={content.orion.thumbnail.image}
                     content={(<OrionPage />)}/>
 
               <Card link="https://squireofsoftware.github.io/JSPets/"
