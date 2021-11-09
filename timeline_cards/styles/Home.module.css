@@ -71,12 +71,19 @@
 .grid {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   padding: 1rem;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   max-width: 800px;
+  max-height: 800px;
   margin-top: 3rem;
   gap: 20px;
+}
+
+.grid::before {
+  content: "";
+  flex-basis: 100%;
+  width: 0;
+  order: 1;
 }
 
 .logo {

@@ -5,7 +5,6 @@ import Card from './cards/Card'
 import {AnimateSharedLayout, motion} from 'framer-motion'
 import OrionPage from './content/Orion'
 import MainPage from './content/Main'
-import content from './api/content'
 
 export default function Home() {
   return (
@@ -28,14 +27,14 @@ export default function Home() {
         <div>
           <AnimateSharedLayout>
             <motion.div layout className={styles.grid}>
-              <Card link={content.github.thumbnail.link}
-                    title={content.github.thumbnail.title}
-                    blurb={content.github.thumbnail.blurb}
+              <Card link="https://github.com/SquireOfSoftware"
+                    title="Main Github page"
+                    blurb="For seeing what I have done outside of work."
                     content={(<MainPage />)}/>
 
-              <Card link={content.orion.thumbnail.link}
-                    title={content.orion.thumbnail.title}
-                    blurb={content.orion.thumbnail.blurb}
+              <Card link="https://github.com/SquireOfSoftware/Orion"
+                    title="Orion"
+                    blurb="An Autonomous Drone Flight system. Aiming to make drone flight autonomous via just highlighting key checkpoints on an iPad"
                     content={(<OrionPage />)}/>
 
               <Card link="https://squireofsoftware.github.io/JSPets/"
