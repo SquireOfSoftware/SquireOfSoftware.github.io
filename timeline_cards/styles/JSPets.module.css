@@ -1,6 +1,7 @@
+
 .image {
   width: 100%;
-  height: auto;
+  align-self: center;
 }
 
 .sticky_heading {
@@ -10,6 +11,10 @@
   line-height: 2em;
 }
 
-.embedded_video {
-  width: 100%;
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.restricted_image {
+  max-width: 50%;
 }
