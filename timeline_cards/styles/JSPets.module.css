@@ -1,14 +1,82 @@
 
+.duckling,
+.older_duckling,
+.duck {
+  width: 30%;
+  padding-bottom: 30%;
+  background-image: url("/images/jspets/duck.png");
+  background-size: 700%;
+  image-rendering: pixelated;
+}
+
+.duckling:hover,
+.older_duckling:hover,
+.duck:hover {
+  animation-name: sprite;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(2);
+  animation-iteration-count: infinite;
+}
+
+@keyframes sprite {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: 33%
+  }
+}
+
+.duckling:hover {
+  animation-name: jump;
+}
+
+@keyframes jump {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: 132%
+  }
+}
+
+.older_duckling:hover {
+  animation-name: hurt;
+}
+
+@keyframes hurt {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: 99%
+  }
+}
+
+.duck:hover {
+  animation-name: attack;
+}
+
+@keyframes attack {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: 67%
+  }
+}
+
+.older_duckling {
+  background-position-y: 33.5%;
+}
+
+.duck {
+  background-position-y: 67%;
+}
+
 .image {
   width: 100%;
   align-self: center;
-}
-
-.sticky_heading {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  line-height: 2em;
 }
 
 .pixelated {
@@ -17,4 +85,20 @@
 
 .restricted_image {
   max-width: 50%;
+}
+
+.sprite_map_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: space-evenly;
+  column-gap: 2vw;
+  justify-content: center;
+}
+
+.sticky_heading {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  line-height: 2em;
 }

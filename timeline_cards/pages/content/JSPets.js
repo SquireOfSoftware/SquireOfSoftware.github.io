@@ -38,6 +38,14 @@ export default function JSPetsPage(props) {
         you can "evolve" your pet to stronger versions of itself (which would push the sprite pointer down one level,
         a max of three levels) and so you can survive longer.
       </p>
+      <div className={styles.sprite_map_container}>
+        <div className={styles.duckling}>
+        </div>
+        <div className={styles.older_duckling}>
+        </div>
+        <div className={styles.duck}>
+        </div>
+      </div>
       <p>
         In fact the longest part of this project was the actual generation of the sprites, they took about three months
         to make.
