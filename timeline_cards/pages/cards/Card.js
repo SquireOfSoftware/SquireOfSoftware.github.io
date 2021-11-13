@@ -173,7 +173,7 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                 <h2>
                   {title}
                 </h2>
-                <div>
+                <div className={styles.content_fullscreen}>
                   {content}
                 </div>
               </motion.div>

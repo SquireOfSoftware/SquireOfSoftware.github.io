@@ -5,6 +5,7 @@ import Card from './cards/Card'
 import {AnimateSharedLayout, motion} from 'framer-motion'
 import OrionPage from './content/Orion'
 import MainPage from './content/Main'
+import JSPetsPage from './content/JSPets'
 
 export default function Home() {
   return (
@@ -38,16 +39,17 @@ export default function Home() {
                     content={(<OrionPage />)}/>
 
               <Card link="https://squireofsoftware.github.io/JSPets/"
-                        title="JSPets"
-                        blurb="A digital pet experience, walking around Tasmania"/>
+                    title="JSPets"
+                    blurb="A digital pet experience, walking around Tasmania"
+                    content={(<JSPetsPage />)}/>
 
               <Card link="https://github.com/SquireOfSoftware/NNFL/tree/master/Project/"
-                        title="Hand Gesture Music Player"
-                        blurb="Controlling your music player via hand gestures in Matlab with a Neural Network behind it"/>
+                    title="Hand Gesture Music Player"
+                    blurb="Controlling your music player via hand gestures in Matlab with a Neural Network behind it"/>
 
               <Card link="https://github.com/SquireOfSoftware/check-in"
-                        title="Check in"
-                        blurb="A sign in system to track the people who enter a church for the purposes of resource provisioning and forecasting for events and food"/>
+                    title="Check in"
+                    blurb="A sign in system to track the people who enter a church for the purposes of resource provisioning and forecasting for events and food"/>
             </motion.div>
           </AnimateSharedLayout>
         </div>

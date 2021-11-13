@@ -1,15 +1,15 @@
-.systemDiagram {
+.image {
   width: 100%;
   height: auto;
 }
 
-.stickyHeading {
+.sticky_heading {
   position: sticky;
   top: 0;
   background-color: white;
   line-height: 2em;
 }
 
-.embeddedVideo {
+.embedded_video {
   width: 100%;
 }

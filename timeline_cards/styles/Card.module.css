@@ -59,7 +59,7 @@
     width: 40%;
   }
   .card__body_fullscreen {
-    width: 800px;
+    max-width: 800px;
     align-self: center;
   }
 }
@@ -71,7 +71,6 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  opacity: 25%;
   overflow: scroll;
   z-index: 10;
 }
@@ -110,4 +109,9 @@
   left: 1em;
   color: white;
   font-size: 1.5em;
+}
+
+.content_fullscreen {
+  display: flex;
+  flex-direction: column;
 }
