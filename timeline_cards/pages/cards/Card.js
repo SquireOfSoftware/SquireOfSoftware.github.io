@@ -82,7 +82,6 @@ function Content({title, image, blurb, link}) {
             <div className={styles.card__body}>
               <h2>{title}</h2>
               <p>{blurb}</p>
-              <a href={link} className="externalLink" target="_blank">Read More</a>
             </div>
           </>)
 }
@@ -192,9 +191,6 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                   className={styles.card__body + " " + styles.card__body_fullscreen}>
                 <h2>{title}</h2>
                 <p>{blurb}</p>
-                <a href={link} target="_blank">
-                    Read More
-                </a>
               </motion.div>
             </motion.div>)
 }
