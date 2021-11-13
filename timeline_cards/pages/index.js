@@ -6,6 +6,7 @@ import {AnimateSharedLayout, motion} from 'framer-motion'
 import OrionPage from './content/Orion'
 import MainPage from './content/Main'
 import JSPetsPage from './content/JSPets'
+import MusicPlayerPage from './content/MusicPlayer'
 
 export default function Home() {
   return (
@@ -45,7 +46,8 @@ export default function Home() {
 
               <Card link="https://github.com/SquireOfSoftware/NNFL/tree/master/Project/"
                     title="Hand Gesture Music Player"
-                    blurb="Controlling your music player via hand gestures in Matlab with a Neural Network behind it"/>
+                    blurb="Controlling your music player via hand gestures in Matlab with a Neural Network behind it"
+                    content={(<MusicPlayerPage />)}/>
 
               <Card link="https://github.com/SquireOfSoftware/check-in"
                     title="Check in"
