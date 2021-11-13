@@ -16,12 +16,23 @@ export default function JSPetsPage(props) {
         change to replicate the experience of a Digivice but in web form.
       </p>
       <p>
-        And I remember explicitly seeing the boom of web technologies then and wanting to get myself into the guts of
-        what was happening at the time with the Javascript standard and the browser advancements that people were making.
+        I didn't find many attempts so I thought I would have a go at it myself.
       </p>
       <p>
-        So I put two and two together and decided that the best way to equip myself with the advancements in Javascript
-        and the browser tech, was to see if I could recreate a Digivice experience in a browser.
+        I also thought that this was a good chance for me to dig deep into the Javascript standard whilst the web tech
+        advancements were starting to take off.
+      </p>
+      <p>
+        It took me like 4 months, to both write up my own sprite rendering engine, but also to draw up all the content
+        for the game. In it's current state it is about 75% done.
+      </p>
+      <p>
+        Originally it was to hook into the pedometer so that your pet could walk with you as you walked. But that never
+        got done.
+      </p>
+      <p>
+        But as it currently stands, you can tap the screen to walk your pet, and each town/city has a mini-boss that
+        your pet will have to battle. And at the very end at Port Arthur, you will face off a really cool end boss.
       </p>
       <h3 className={styles.sticky_heading}>What is this made of?</h3>
       <p>
@@ -38,6 +49,10 @@ export default function JSPetsPage(props) {
         you can "evolve" your pet to stronger versions of itself (which would push the sprite pointer down one level,
         a max of three levels) and so you can survive longer.
       </p>
+      <p>
+        I have rerigged the sprite and state transitions below, so have a go at mousing over them and watch them
+        animate.
+      </p>
       <div className={styles.sprite_map_container}>
         <div className={styles.duckling}>
         </div>
@@ -50,6 +65,9 @@ export default function JSPetsPage(props) {
         In fact the longest part of this project was the actual generation of the sprites, they took about three months
         to make.
       </p>
+      <p>
+        Here is a quick gif compilation of all the types of sprites that I drew up for the game:
+      </p>
       <img className={styles.image} src="/images/jspets/demo.gif"/>
       <h3 className={styles.sticky_heading}>What is the game about?</h3>
       <p>
@@ -61,15 +79,25 @@ export default function JSPetsPage(props) {
       </p>
       <img className={[styles.image, styles.pixelated, styles.restricted_image].join(" ")} src="/images/jspets/tasmania-45by40 with cities.png"/>
       <p>
-        And the game was supposed to use your pedometer so that your little pet can walk with you, but in Tasmania.
+        And you tap the screen to walk your little pet around Tasmania.
       </p>
       <p>
-        This was a really good project because with the 20 by 45 pixel limitation I had some very challenging creative decisions
-        that I had to make, regarding how to express movement in a very limited space, how to express progress,
-        and a little bit of performance (understanding the dev tools throttling mechanism, understanding how to unpack
-        the most expensive calls, even though the images that I was drawing were tiny, the animations and transitions
-        could seriously kill the browser at the time).
+        This was a really good project because I had to work within the 20 by 45 pixel limitation, and it was precisely
+        because of this limitation I had to make some very challenging creative decisions, regarding how to express
+        movement in a very limited space, how to express game progress and how to randomly generate enemies to fight,
+        as well a little bit of performance tuning (understanding the dev tools throttling mechanism, understanding
+        how to unpack the most expensive calls, even though the images that I was drawing were tiny, some of the
+        animations and transitions could seriously kill the performance).
       </p>
+      <p>
+        I also learnt an incredible amount about Tasmania, as each city had an overlap of biomes and climate like
+        beaches or mountainous areas or forestry or urban cities, which I used to spawn enemies that were specific
+        to the different biomes and climates...like a finding a rare and endangered fridge on Cradle mountain.
+      </p>
+      <div className={styles.sprite_map_container}>
+        <div className={[styles.fridge, styles.sprite].join(" ")}>
+        </div>
+      </div>
       <p>
         For the full demo of the JSPets project, you can access it <a href="https://squireofsoftware.github.io/JSPets/" target="_blank">here</a>.
       </p>

@@ -11,11 +11,20 @@
 
 .duckling:hover,
 .older_duckling:hover,
-.duck:hover {
-  animation-name: sprite;
+.duck:hover,
+.fridge {
   animation-duration: 0.5s;
   animation-timing-function: steps(2);
   animation-iteration-count: infinite;
+}
+
+.fridge {
+  width: 30%;
+  padding-bottom: 30%;
+  background-image: url("/images/jspets/fridge.png");
+  background-size: 700%;
+  image-rendering: pixelated;
+  animation-name: sprite;
 }
 
 @keyframes sprite {
@@ -23,7 +32,7 @@
     background-position-x: 0%;
   }
   to {
-    background-position-x: 33%
+    background-position-x: 33.4%
   }
 }
 
