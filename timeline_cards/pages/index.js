@@ -8,6 +8,7 @@ import MainPage from './content/Main'
 import JSPetsPage from './content/JSPets'
 import MusicPlayerPage from './content/MusicPlayer'
 import CheckInPage from './content/CheckIn'
+import SocialButtons from './content/Socials'
 
 export default function Home() {
   return (
@@ -26,6 +27,8 @@ export default function Home() {
         <p className={styles.description}>
           My name is Joseph TRAN and I am a software engineer.
         </p>
+
+        <SocialButtons />
 
         <div>
           <AnimateSharedLayout>
@@ -61,6 +64,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
+        <SocialButtons />
       </footer>
     </div>
   )

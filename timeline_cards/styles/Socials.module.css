@@ -1,0 +1,20 @@
+.social_button_container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.social_button {
+  width: 2em;
+  height: 2em;
+  color: black;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.social_button:hover {
+  transform: scale(1.4, 1.4) translateZ(0);
+}
