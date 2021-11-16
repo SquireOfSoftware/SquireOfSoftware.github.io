@@ -112,14 +112,17 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                             borderRadius: "10px"
                             }}
                   animate={{
-                             width: "100%",
-                             height: "100%",
-                             position: "fixed",
-                             left: 0,
-                             top: 0,
-                             border: 0,
-                             borderRadius: "0px"
-                             }}
+                            width: "100%",
+                            height: "100%",
+                            position: "fixed",
+                            left: 0,
+                            top: 0,
+                            border: 0,
+                            borderRadius: "0px",
+                            transition: {
+                                type: "tween"
+                              }
+                            }}
                   exit={{
                           width: originalDiv.width,
                           height: originalDiv.height,

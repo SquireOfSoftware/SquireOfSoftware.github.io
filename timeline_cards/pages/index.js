@@ -7,6 +7,7 @@ import OrionPage from './content/Orion'
 import MainPage from './content/Main'
 import JSPetsPage from './content/JSPets'
 import MusicPlayerPage from './content/MusicPlayer'
+import CheckInPage from './content/CheckIn'
 
 export default function Home() {
   return (
@@ -51,7 +52,8 @@ export default function Home() {
 
               <Card link="https://github.com/SquireOfSoftware/check-in"
                     title="Check in"
-                    blurb="A sign in system to track the people who enter a church for the purposes of resource provisioning and forecasting for events and food"/>
+                    blurb="A sign in system to track the people who enter a church for the purposes of resource provisioning and forecasting for events and food"
+                    content={(<CheckInPage />)}/>
             </motion.div>
           </AnimateSharedLayout>
         </div>
