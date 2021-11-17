@@ -4,4 +4,6 @@ module.exports = {
     loader: 'imgix',
     path: './',
   },
+  assetPrefix: '/',
+  basePath: '/squireofsoftware.github.io'
 }

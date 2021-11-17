@@ -21,6 +21,11 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 For the production build you can run: `yarn build:prod` and it will 
 generate an `out` folder with your production build inside.
 
+To deploy to github you need to do the following things:
+1. Pull the changes from `master` into the `deployed` branch
+2. cd into this directory then run the `./build_production.sh`
+3. And that should be it, just make sure that your `assetPrefix` and `basePath` is set up correctly
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
