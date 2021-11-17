@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:prod": "next build && next export"
+    "build:prod": "export NODE_ENV=production && next build && next export"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -17,7 +17,8 @@
     "framer-motion": "^4.1.17",
     "next": "11.1.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-ga": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "8.0.1",

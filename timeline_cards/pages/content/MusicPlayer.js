@@ -42,7 +42,7 @@ export default function MusicPlayerPage(props) {
         We first had to plan how we would architect the neural network. Given our limited knowledge in the topic, we
         opted for a Back Propagation design:
       </p>
-      <img src="images/neural_net/Neural Network design.png"/>
+      <img src="images/neural_net/Neural Network design.png" className={styles.image}/>
       <p>
         From here, we would use some sort of device to capture as many hand gestures and motions of people moving their
         hands in a particular direction and then feed this data into the Neural Network to hopefully teach it how to
@@ -52,7 +52,7 @@ export default function MusicPlayerPage(props) {
         From here we mapped out the maths that we would need to get this system to start learning from the inputs
         that we were providing to the neural net:
       </p>
-      <img src="images/neural_net/Neural Network implementation.png"/>
+      <img src="images/neural_net/Neural Network implementation.png" className={styles.image} />
       <p>
         We had a bias at the front to increase the fit of the predication against the data better.
       </p>
@@ -126,16 +126,16 @@ export default function MusicPlayerPage(props) {
       <p>
         For our over trained network, we obtained 78% across all four gestures.
       </p>
-      <img src="images/neural_net/Training results.png" />
+      <img src="images/neural_net/Training results.png" className={styles.image} />
       <p>
         For our under trained network, we obtained 47.5% across all four gestures. But we really needed more data to
         make this network work.
       </p>
-      <img src="images/neural_net/Training results 2.png" />
+      <img src="images/neural_net/Training results 2.png" className={styles.image} />
       <h3 className={styles.sticky_heading}>
         Lessons Learnt
       </h3>
-      <img src="images/neural_net/Lessons learnt.png"/>
+      <img src="images/neural_net/Lessons learnt.png" className={styles.image} />
       <p>
         We played around with different neuron sizes to see how it would learn differently, we found that the larger
         the set of neurons on the second layer, the longer the training would require and the slower that the network
@@ -156,7 +156,7 @@ export default function MusicPlayerPage(props) {
         the fingers, but instead we could have tracked the palm and used that to record our data. So that would have
         just been 60 samples of the palm instead of the 300 for the 5 fingers.
       </p>
-      <img src="images/neural_net/Reflections.png"/>
+      <img src="images/neural_net/Reflections.png" className={styles.image}/>
       <p>
         For the full source code on how this worked and the resulting Neural Net that we had trained, you can
         go to this link <a href="https://github.com/SquireOfSoftware/NNFL/tree/master/Project" target="_blank">here</a>.
