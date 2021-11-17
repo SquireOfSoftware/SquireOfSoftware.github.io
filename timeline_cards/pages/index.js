@@ -10,11 +10,17 @@ import JSPetsPage from './content/JSPets'
 import MusicPlayerPage from './content/MusicPlayer'
 import CheckInPage from './content/CheckIn'
 import SocialButtons from './content/Socials'
+import ReactGA from 'react-ga'
+import {useEffect} from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
+  useEffect(() => {
+    ReactGA.initialize('UA-70003644-4');
+    ReactGA.pageview(window.location.pathname);
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
@@ -40,27 +46,32 @@ export default function Home() {
               <Card link="https://github.com/SquireOfSoftware"
                     title="Main Github page"
                     blurb="For seeing what I have done outside of work."
-                    content={(<MainPage />)}/>
+                    content={(<MainPage />)}
+                    openCard={() => ReactGA.pageview(window.location.pathname + "#GithubPage")}/>
 
               <Card link="https://github.com/SquireOfSoftware/Orion"
                     title="Orion"
                     blurb="An Autonomous Drone Flight system. Aiming to make drone flight autonomous via just highlighting key checkpoints on an iPad"
-                    content={(<OrionPage />)}/>
+                    content={(<OrionPage />)}
+                    openCard={() => ReactGA.pageview(window.location.pathname + "#Drone")}/>
 
               <Card link="https://squireofsoftware.github.io/JSPets/"
                     title="JSPets"
                     blurb="A digital pet experience, walking around Tasmania"
-                    content={(<JSPetsPage />)}/>
+                    content={(<JSPetsPage />)}
+                    openCard={() => ReactGA.pageview(window.location.pathname + "#Drone")}/>
 
               <Card link="https://github.com/SquireOfSoftware/NNFL/tree/master/Project/"
                     title="Hand Gesture Music Player"
                     blurb="Controlling your music player via hand gestures in Matlab with a Neural Network behind it"
-                    content={(<MusicPlayerPage />)}/>
+                    content={(<MusicPlayerPage />)}
+                    openCard={() => ReactGA.pageview(window.location.pathname + "#NeuralNet")}/>
 
               <Card link="https://github.com/SquireOfSoftware/check-in"
                     title="Check in"
                     blurb="A sign in system to track the people who enter a church for the purposes of resource provisioning and forecasting for events and food"
-                    content={(<CheckInPage />)}/>
+                    content={(<CheckInPage />)}
+                    openCard={() => ReactGA.pageview(window.location.pathname + "#CheckIn")}/>
             </motion.div>
           </AnimateSharedLayout>
         </div>

@@ -25,7 +25,10 @@ export default function Card(props) {
       const parentDiv = locateParentDiv(event.target);
       setOriginalDimensions(parentDiv);
       // hide the thumbnail card
-      parentDiv.style.visibility="hidden"
+      parentDiv.style.visibility="hidden";
+      if (props.openCard() !== undefined) {
+        props.openCard();
+      }
     }
   }
 
