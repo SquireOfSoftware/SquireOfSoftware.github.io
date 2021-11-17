@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import cardStyles from '../styles/Card.module.css'
 import Card from './cards/Card'
 import {AnimateSharedLayout, motion} from 'framer-motion'
 import OrionPage from './content/Orion'
@@ -9,6 +10,9 @@ import JSPetsPage from './content/JSPets'
 import MusicPlayerPage from './content/MusicPlayer'
 import CheckInPage from './content/CheckIn'
 import SocialButtons from './content/Socials'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
   return (

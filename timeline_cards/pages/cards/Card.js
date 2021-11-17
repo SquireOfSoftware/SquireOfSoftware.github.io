@@ -154,10 +154,9 @@ function FullScreenContent({title, image, blurb, content, link, closeHandler, or
                 className={styles.card__close_fullscreen}
                 onClick={closeHandler}
                 >
-                <FontAwesomeIcon
-                  icon={faTimes}
-                  className={styles.card__close_symbol}
-                />
+                <div className={styles.card__close_symbol}>
+                  <FontAwesomeIcon icon={faTimes}/>
+                </div>
               </motion.div>
               <motion.div
                 layout
