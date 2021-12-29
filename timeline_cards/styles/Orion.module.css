@@ -3,13 +3,6 @@
   height: auto;
 }
 
-.sticky_heading {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  line-height: 2em;
-}
-
 .embedded_video {
   width: 100%;
 }

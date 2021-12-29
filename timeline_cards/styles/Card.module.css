@@ -1,31 +1,29 @@
-
 .card {
   text-align: left;
-  color: inherit;
+  color: var(--card-text-color);
   text-decoration: none;
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   width: 100%;
   overflow: hidden;
-  background-color: white;
+  background-color: var(--card-color);
   backface-visibility: hidden;
   will-change: scale;
   cursor: pointer;
 }
 
-.card::after
-.card__fullscreen::after {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+.card::after .card__fullscreen::after {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   opacity: 0;
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  color: var(--border-color-hover);
+  border-color: var(--border-color-hover);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   transform: scale(1.1, 1.1) translateZ(0);
 }
 
@@ -34,13 +32,13 @@
 }
 
 .card h2,
-.card__fullscreen h2{
+.card__fullscreen h2 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
 }
 
 .card p,
-.card__fullscreen p{
+.card__fullscreen p {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -66,19 +64,12 @@
   }
 }
 
-.container {
-}
-
 .card__fullscreen {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--card-color);
   overflow: scroll;
   z-index: 10;
-}
-
-.card__img_fullscreen {
-
 }
 
 .hidden {
@@ -91,7 +82,7 @@
   right: -3em;
   top: -3em;
   border-radius: 3em;
-  background-color: gray;
+  background-color: var(--close-card-color);
   position: fixed;
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor: pointer;
@@ -108,7 +99,7 @@
   position: absolute;
   bottom: 1.5em;
   left: 1em;
-  color: white;
+  color: var(--close-color);
   font-size: 0.9em;
   height: 2em;
   width: 2em;

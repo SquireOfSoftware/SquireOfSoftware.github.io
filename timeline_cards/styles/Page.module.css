@@ -1,0 +1,6 @@
+.sticky_heading {
+  position: sticky;
+  top: 0;
+  background-color: var(--card-color);
+  line-height: 2em;
+}

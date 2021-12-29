@@ -7,5 +7,5 @@ module.exports = {
     path: './',
   },
   assetPrefix: isProd ? '/' : '',
-//  basePath: isProd ? '/squireofsoftware.github.io' : undefined
+  basePath: isProd ? '/squireofsoftware.github.io' : undefined
 }

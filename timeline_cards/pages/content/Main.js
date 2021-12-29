@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from '../../styles/Main.module.css'
 
 export default function MainPage(props) {
