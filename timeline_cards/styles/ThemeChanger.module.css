@@ -1,23 +1,28 @@
 .container {
-  position: fixed;
-  top: 0;
-  left: 10%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
 }
 
 .button {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
+}
+
+.active {
+  color: var(--theme-changer-icon-color);
+  border-radius: 1em;
+  padding: 0.25em;
 }
 
 .inactive {
-  color: grey;
+  color: var(--theme-changer-inactive-icon);
+  border-radius: 1em;
+  padding: 0.25em;
 }
 
 .light {
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .light:hover {

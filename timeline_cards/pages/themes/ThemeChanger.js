@@ -13,48 +13,69 @@ export default function ThemeButton({ changeTheme }) {
   // if no value found, then default to light
   // otherwise use the found value
   // if the value does not exist then default to light
+  const [selectedTheme, setSelectedTheme] = useState(modes.light);
 
-  console.log({ modes, changeTheme });
+  console.log({ modes, changeTheme, selectedTheme });
 
   const buttons = Object.values(modes).map((mode) => {
+    console.log({ css: mode.activeCss });
     return (
       <Button
         key={mode.type}
         name={mode.type}
         icon={mode.icon}
         reference={mode}
-        onClick={() => changeTheme(mode)}
+        customClass={
+          mode === selectedTheme
+            ? styles[mode.activeCss]
+            : styles[mode.inActiveCss]
+        }
+        onClick={() => {
+          changeTheme(mode);
+          setSelectedTheme(mode);
+        }}
       />
     );
   });
 
-  return <div className={styles.container}>{buttons}</div>;
+  return (
+    <div>
+      <div className={styles.container}>{buttons}</div>
+    </div>
+  );
 }
 
 export const modes = {
   light: {
     type: "light",
     selectedCss: "light",
-    inActiveCss: styles.inactive,
+    activeCss: "active",
+    inActiveCss: "inactive",
     icon: faSun,
   },
   dark: {
     type: "dark",
     selectedCss: "dark",
-    inActiveCss: styles.inactive,
+    activeCss: "active",
+    inActiveCss: "inactive",
     icon: faMoon,
   },
   pink: {
     type: "pink",
     selectedCss: "pink",
-    inActiveCss: styles.inactive,
+    activeCss: "active",
+    inActiveCss: "inactive",
     icon: faRibbon,
   },
 };
 
-function Button({ icon, onClick }) {
+function Button({ name, icon, onClick, customClass }) {
   return (
-    <div className={[styles.button, styles.light].join(" ")} onClick={onClick}>
+    <div
+      className={[styles.button, styles.light, customClass].join(" ")}
+      onClick={onClick}
+      title={`Change to ${name} theme`}
+    >
       <FontAwesomeIcon icon={icon} />
     </div>
   );

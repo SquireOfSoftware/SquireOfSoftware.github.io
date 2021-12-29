@@ -9,7 +9,8 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  color: var(--font-color);
 }
 
 * {
@@ -40,6 +41,13 @@ div[data-theme="light"] {
   --social-icon-color: black;
   --border-color: #eaeaea;
   --card-color: white;
+  --card-text-color: black;
+  --close-card-color: gray;
+  --close-color: white;
+  --border-color-hover: #0070f3;
+  --footer-border-color: #eaeaea;
+  --theme-changer-icon-color: orange;
+  --theme-changer-inactive-icon: gray;
 }
 
 div[data-theme="pink"] {
@@ -47,14 +55,27 @@ div[data-theme="pink"] {
   --font-color: darkred;
   --secondary-color: pink;
   --social-icon-color: darkred;
-  --border-color: darkred;
-  --card-color: pink;
+  --border-color: none;
+  --card-color: rgb(247, 160, 175);
+  --card-text-color: darkred;
+  --close-card-color: darkred;
+  --close-color: pink;
+  --border-color-hover: none;
+  --footer-border-color: darkred;
+  --theme-changer-icon-color: hotpink;
+  --theme-changer-inactive-icon: rgb(185, 98, 112);
 }
 
 div[data-theme="dark"] {
-  --bg-color: black;
-  --font-color: white;
-  --border-color: lightgray;
+  --bg-color: #242424;
+  --font-color: lightgray;
+  --border-color: #2c2c2c;
   --social-icon-color: lightgray;
-  --card-color: black;
+  --card-color: #2c2c2c;
+  --card-text-color: lightgray;
+  --close-color: #2c2c2c;
+  --border-color-hover: none;
+  --footer-border-color: lightgray;
+  --theme-changer-icon-color: yellow;
+  --theme-changer-inactive-icon: lightgray;
 }
