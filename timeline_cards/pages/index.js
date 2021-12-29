@@ -23,7 +23,6 @@ export default function Home() {
   }, []);
 
   const changeTheme = (mode) => {
-    console.log({ mode, style: styles[currentTheme.selectedCss] });
     setCurrentTheme(mode);
   };
 

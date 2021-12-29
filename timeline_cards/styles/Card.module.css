@@ -64,18 +64,12 @@
   }
 }
 
-.container {
-}
-
 .card__fullscreen {
   display: flex;
   flex-direction: column;
   background-color: var(--card-color);
   overflow: scroll;
   z-index: 10;
-}
-
-.card__img_fullscreen {
 }
 
 .hidden {

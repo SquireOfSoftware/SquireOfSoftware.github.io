@@ -62,7 +62,7 @@ div[data-theme="pink"] {
   --close-color: pink;
   --border-color-hover: none;
   --footer-border-color: darkred;
-  --theme-changer-icon-color: hotpink;
+  --theme-changer-icon-color: darkred;
   --theme-changer-inactive-icon: rgb(185, 98, 112);
 }
 

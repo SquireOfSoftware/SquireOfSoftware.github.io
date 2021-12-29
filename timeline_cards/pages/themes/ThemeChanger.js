@@ -15,10 +15,9 @@ export default function ThemeButton({ changeTheme }) {
   // if the value does not exist then default to light
   const [selectedTheme, setSelectedTheme] = useState(modes.light);
 
-  console.log({ modes, changeTheme, selectedTheme });
+  console.debug({ modes, changeTheme, selectedTheme });
 
   const buttons = Object.values(modes).map((mode) => {
-    console.log({ css: mode.activeCss });
     return (
       <Button
         key={mode.type}
