@@ -26,6 +26,11 @@ To deploy to github you need to do the following things:
 2. cd into this directory then run the `./build_production.sh`
 3. And that should be it, just make sure that your `assetPrefix` and `basePath` is set up correctly
 
+TODO:
+- summarise the text
+- add clearer description of the tech stack to each card
+- dark theme and pink theme: https://levelup.gitconnected.com/dark-mode-in-react-533faaee3c6e or https://www.youtube.com/watch?v=RiWxhm5ZdFM
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
